@@ -1,0 +1,10 @@
+services:
+  postgres:
+    container_name: vacancy_database
+    image: postgres:14
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=tobias
+      - POSTGRES_PASSWORD=11591004
+      - POSTGRES_DB=vacancy
