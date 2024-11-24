@@ -1,6 +1,5 @@
 package org.personal.Vacancy_Manager.modules.company.controllers;
 
-import lombok.Getter;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -8,7 +7,6 @@ import org.junit.runner.RunWith;
 import org.personal.Vacancy_Manager.modules.company.dto.CreateJobDTO;
 import org.personal.Vacancy_Manager.modules.company.entities.CompanyEntity;
 import org.personal.Vacancy_Manager.modules.company.repositories.CompanyRepository;
-import org.personal.Vacancy_Manager.utils.TestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,7 +28,7 @@ import static org.personal.Vacancy_Manager.utils.TestUtils.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 public class TestCreateJobController {
-    
+
     @Value("${security.token.secret}")
     private String secret;
 
@@ -81,6 +79,6 @@ public class TestCreateJobController {
                                                       UUID.randomUUID(),
                                                       this.secret
                                               ))
-        ).andExpect(MockMvcResultMatchers.status().is(422));
+        ).andExpect(MockMvcResultMatchers.status().isUnprocessableEntity());
     }
 }
