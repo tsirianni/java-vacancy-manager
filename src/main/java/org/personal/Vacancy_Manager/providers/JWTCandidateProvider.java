@@ -19,7 +19,6 @@ public class JWTCandidateProvider {
         try {
             return JWT.require(algorithm).build().verify(rawToken);
         } catch (JWTVerificationException ex) {
-            ex.printStackTrace();
             return null;
         }
     }
