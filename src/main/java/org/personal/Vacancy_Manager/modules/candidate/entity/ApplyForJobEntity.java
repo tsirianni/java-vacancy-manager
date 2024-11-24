@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.personal.Vacancy_Manager.modules.candidate.CandidateEntity;
 import org.personal.Vacancy_Manager.modules.company.entities.JobEntity;
 
 import java.time.LocalDateTime;

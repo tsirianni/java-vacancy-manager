@@ -2,7 +2,7 @@ package org.personal.Vacancy_Manager.modules.candidate.useCases;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import org.personal.Vacancy_Manager.modules.candidate.CandidateRepository;
+import org.personal.Vacancy_Manager.modules.candidate.repository.CandidateRepository;
 import org.personal.Vacancy_Manager.modules.candidate.dto.AuthCandidateRequestDTO;
 import org.personal.Vacancy_Manager.modules.candidate.dto.AuthCandidateResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;

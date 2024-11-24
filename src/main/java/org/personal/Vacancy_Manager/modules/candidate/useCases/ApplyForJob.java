@@ -2,7 +2,7 @@ package org.personal.Vacancy_Manager.modules.candidate.useCases;
 
 import org.personal.Vacancy_Manager.exceptions.JobNotFoundException;
 import org.personal.Vacancy_Manager.exceptions.UserNotFoundException;
-import org.personal.Vacancy_Manager.modules.candidate.CandidateRepository;
+import org.personal.Vacancy_Manager.modules.candidate.repository.CandidateRepository;
 import org.personal.Vacancy_Manager.modules.candidate.entity.ApplyForJobEntity;
 import org.personal.Vacancy_Manager.modules.candidate.repository.ApplyForJobRepository;
 import org.personal.Vacancy_Manager.modules.company.repositories.JobRepository;

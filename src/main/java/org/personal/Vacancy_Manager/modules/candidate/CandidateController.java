@@ -11,6 +11,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.personal.Vacancy_Manager.modules.candidate.dto.ProfileCandidateResponseDTO;
+import org.personal.Vacancy_Manager.modules.candidate.entity.ApplyForJobEntity;
+import org.personal.Vacancy_Manager.modules.candidate.entity.CandidateEntity;
+import org.personal.Vacancy_Manager.modules.candidate.useCases.ApplyForJob;
 import org.personal.Vacancy_Manager.modules.candidate.useCases.CreateCandidate;
 import org.personal.Vacancy_Manager.modules.candidate.useCases.ListAllJobsByFilter;
 import org.personal.Vacancy_Manager.modules.candidate.useCases.ProfileCandidate;
@@ -36,6 +39,9 @@ public class CandidateController {
 
     @Autowired
     private ListAllJobsByFilter listAllJobsByFilter;
+
+    @Autowired
+    private ApplyForJob applyForJob;
 
     @PostMapping
     @Operation(summary = "Creates a candidate")
@@ -90,5 +96,20 @@ public class CandidateController {
     @GetMapping("/jobs")
     public List<JobEntity> findJobsByFilter(@RequestParam() String filter) {
         return this.listAllJobsByFilter.execute(filter);
+    }
+
+    @SecurityRequirement(name = "jwt_auth")
+    @PreAuthorize("hasRole('CANDIDATE')")
+    @PostMapping("/jobs/apply")
+    @Operation(summary = "Apply for a job", description = "Creates a job application for a given candidate")
+    public ResponseEntity<Object> applyForJob(HttpServletRequest request, @RequestBody UUID openingId) {
+        var candidateId = request.getAttribute("candidate_id");
+
+        try {
+            var jobApplication = this.applyForJob.execute(UUID.fromString(candidateId.toString()), openingId);
+            return ResponseEntity.ok().body(jobApplication);
+        } catch (Exception e) {
+            return ResponseEntity.unprocessableEntity().body(e.getMessage());
+        }
     }
 }

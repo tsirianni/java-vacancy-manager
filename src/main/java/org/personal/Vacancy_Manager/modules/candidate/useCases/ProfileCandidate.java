@@ -1,6 +1,6 @@
 package org.personal.Vacancy_Manager.modules.candidate.useCases;
 
-import org.personal.Vacancy_Manager.modules.candidate.CandidateRepository;
+import org.personal.Vacancy_Manager.modules.candidate.repository.CandidateRepository;
 import org.personal.Vacancy_Manager.modules.candidate.dto.ProfileCandidateResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

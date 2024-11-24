@@ -1,5 +1,6 @@
-package org.personal.Vacancy_Manager.modules.candidate;
+package org.personal.Vacancy_Manager.modules.candidate.repository;
 
+import org.personal.Vacancy_Manager.modules.candidate.entity.CandidateEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

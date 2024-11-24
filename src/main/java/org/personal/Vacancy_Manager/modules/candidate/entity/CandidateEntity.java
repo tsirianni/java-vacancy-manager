@@ -1,4 +1,4 @@
-package org.personal.Vacancy_Manager.modules.candidate;
+package org.personal.Vacancy_Manager.modules.candidate.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

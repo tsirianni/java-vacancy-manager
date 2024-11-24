@@ -1,8 +1,8 @@
 package org.personal.Vacancy_Manager.modules.candidate.useCases;
 
 import org.personal.Vacancy_Manager.exceptions.UserFoundException;
-import org.personal.Vacancy_Manager.modules.candidate.CandidateEntity;
-import org.personal.Vacancy_Manager.modules.candidate.CandidateRepository;
+import org.personal.Vacancy_Manager.modules.candidate.entity.CandidateEntity;
+import org.personal.Vacancy_Manager.modules.candidate.repository.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
