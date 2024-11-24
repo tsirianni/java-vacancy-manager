@@ -50,7 +50,11 @@ public class JobController {
                          .companyId(UUID.fromString(request.getAttribute("company_id").toString()))
                          .build();
 
-        var result = createJob.execute(jobEntity);
-        return ResponseEntity.ok().body(result);
+        try {
+            var result = createJob.execute(jobEntity);
+            return ResponseEntity.ok().body(result);
+        } catch (Exception e) {
+            return ResponseEntity.unprocessableEntity().body(e.getMessage());
+        }
     }
 }

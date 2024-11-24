@@ -8,12 +8,10 @@ import org.personal.Vacancy_Manager.modules.company.entities.CompanyEntity;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 public class TestUtils {
-
     public static String objectToJson(Object object) throws JsonProcessingException {
         final ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(object);
@@ -23,7 +21,7 @@ public class TestUtils {
         Algorithm algorithm = Algorithm.HMAC256(secret);
         var expiresAt = Instant.now().plus(Duration.ofHours(1));
 
-        return JWT.create().withIssuer("Company S/A").withSubject(companyId.toString()).withClaim("roles", Arrays.asList(
+        return JWT.create().withIssuer("Company S/A").withSubject(companyId.toString()).withClaim("roles", List.of(
                 "COMPANY")).withExpiresAt(expiresAt).sign(algorithm);
     }
 
@@ -41,4 +39,5 @@ public class TestUtils {
 
         return company;
     }
+
 }
