@@ -1,9 +1,13 @@
 package org.personal.Vacancy_Manager.modules.company.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreateJobDTO {
 
     @Schema(example = "Junior software developer opening for java", requiredMode = Schema.RequiredMode.REQUIRED)
