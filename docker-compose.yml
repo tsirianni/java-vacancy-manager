@@ -8,3 +8,20 @@ services:
       - POSTGRES_USER=tobias
       - POSTGRES_PASSWORD=11591004
       - POSTGRES_DB=vacancy
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - vcm-network
+    ports:
+      - "9090:9090"
+
+volumes:
+  prometheus_data:
+
+networks:
+  vcm-network:
+    driver: bridge

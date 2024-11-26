@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 6s
+
+scrape_configs:
+  - job_name: "spring"
+    metrics_path: actuator/prometheus
+    static_configs:
+      # Need to use docker's host IP, since the target is not running in the same container as prometheus localhost does not work
+      - targets: [ "172.17.0.1:8080" ]
+        labels:
+          application: "vacancy-manager-api"
